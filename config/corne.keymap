@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        r-winkey {
+            bindings = <&kp LEFT_GUI>;
+            key-positions = <32 33>;
+        };
+
+        l-winkey {
+            bindings = <&kp LEFT_WIN>;
+            key-positions = <26 27>;
+        };
+
+        menu {
+            bindings = <&kp C_MENU>;
+            key-positions = <31 32>;
+        };
+
+        alt {
+            bindings = <&kp LEFT_ALT>;
+            key-positions = <34 33>;
+        };
+
+        escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <12 13>;
+        };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <29 28>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp F           &kp P      &kp G    &kp J      &kp L  &kp U           &kp Y    &kp FSLH  &kp MINUS
+&kp BSPC   &kp A  &kp R  &kp S           &kp T      &kp D    &kp H      &kp N  &kp E           &kp I    &kp O     &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C           &kp V      &kp B    &kp K      &kp M  &kp COMMA       &kp DOT  &kp SEMI  &kp LCTRL
+                         &mt LSHFT CAPS  &kp SPACE  &mo 2    &kp ENTER  &mo 1  &mt LSHFT CAPS
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+&kp TAB    &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp EQUAL     &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET    &kp BACKSLASH  &kp LEFT_BRACE   &kp ASTERISK  &kp RIGHT_BRACE  &kp SLASH  &kp MINUS
+&kp BSPC   &kp N7            &kp N5                &kp NUMBER_3  &kp NUMBER_1           &kp NUMBER_9         &kp N0         &kp NUMBER_2     &kp NUMBER_4  &kp NUMBER_6     &kp N8     &kp PLUS
+&kp LCTRL  &kp Z             &kp LESS_THAN         &kp C         &kp GREATER_THAN       &kp GRAVE            &kp K          &kp EXCLAMATION  &kp COMMA     &kp PERIOD       &kp SEMI   &kp LCTRL
+                                                   &kp LSHFT     &kp SPACE              &mo 2                &kp RETURN     &trans           &kp LSHFT
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+&kp TAB        &none  &none           &kp UP_ARROW    &none            &kp PRINTSCREEN    &kp SCROLLLOCK   &kp F9  &kp F10    &kp F11  &kp F12  &mo 3
+&kp BACKSPACE  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none              &kp PAUSE_BREAK  &kp F5  &kp F6     &kp F7   &kp F8   &none
+&kp LCTRL      &none  &kp PAGE_UP     &kp PAGE_DOWN   &kp HOME         &kp END            &none            &kp F1  &kp F2     &kp F3   &kp F4   &kp RIGHT_CONTROL
+                                      &kp LSHFT       &kp SPACE        &trans             &kp RETURN       &mo 1   &kp LSHFT
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&none         &none         &none         &none         &none         &none    &none  &none       &none  &none  &none  &trans
+&bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &none    &none  &bt BT_CLR  &none  &none  &none  &none
+&none         &none         &none         &none         &none         &none    &none  &none       &none  &none  &none  &none
+                                          &none         &none         &none    &none  &none       &none
+            >;
+        };
+    };
+};
